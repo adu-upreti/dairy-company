@@ -1,0 +1,16 @@
+version: '3'
+services:
+  backend:
+    build: ./dairy-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./dairy-backend:/app
+  frontend:
+    image: node:16
+    working_dir: /app
+    volumes:
+      - ./dairy-frontend:/app
+    ports:
+      - "3000:3000"
+    command: "npm start" # Adjust based on your frontend setup
